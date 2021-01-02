@@ -10,8 +10,7 @@ namespace FunctionUsingArcusKeyVault
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            var serviceProvider = builder.Services.BuildServiceProvider();
-            var config = serviceProvider.GetRequiredService<IConfiguration>();
+            var config = builder.GetContext().Configuration;
 
             builder.ConfigureSecretStore(stores =>
             {
